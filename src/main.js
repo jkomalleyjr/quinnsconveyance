@@ -31,7 +31,7 @@ document.querySelector('#app').innerHTML = `
           <a href="#services">Services</a>
           <a href="#about">About</a>
           <a href="#industries">Industries</a>
-          <a href="#contact">Contact</a>
+          <a href="#call-us">Contact</a>
         </nav>
         <a href="#quote" class="cta-button">Get Quote</a>
       </div>
@@ -162,7 +162,7 @@ document.querySelector('#app').innerHTML = `
       </div>
       
       <!-- Alternative Contact Methods -->
-      <div class="contact-alternatives">
+      <div class="contact-alternatives" id="call-us">
         <h3>Prefer to Talk? Call Us Now</h3>
         <div class="hero-buttons">
           <a href="tel:+1-800-555-0123" class="btn-secondary">Call (800) 555-0123</a>
