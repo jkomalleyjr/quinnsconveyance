@@ -151,11 +151,38 @@ document.querySelector('#app').innerHTML = `
   <!-- CTA Section -->
   <section class="cta-section" id="quote">
     <div class="container">
-      <h2>Ready to Move Your Urgent Freight?</h2>
-      <p>Get started with Quinn's Conveyance today. Our experienced team is standing by to handle your time-critical shipping needs.</p>
-      <div class="hero-buttons">
-        <a href="https://forms.office.com/r/YOUR_FORM_ID" target="_blank" class="btn-primary">Get Free Quote</a>
-        <a href="tel:+1-800-555-0123" class="btn-secondary">Call (800) 555-0123</a>
+      <h2>Get Your Free Quote Today</h2>
+      <p>Fill out the form below and we'll get back to you within 2 business hours with a custom quote for your expedited freight needs.</p>
+      
+      <!-- Embedded Microsoft Form -->
+      <div class="form-container">
+        <iframe 
+          src="https://forms.office.com/Pages/ResponsePage.aspx?id=YOUR_FORM_ID&embed=true" 
+          width="100%" 
+          height="800" 
+          frameborder="0" 
+          marginwidth="0" 
+          marginheight="0" 
+          style="border: none; max-width: 100%; max-height: 100vh;" 
+          allowfullscreen 
+          webkitallowfullscreen 
+          mozallowfullscreen 
+          msallowfullscreen>
+        </iframe>
+        
+        <!-- Fallback for users who can't see the embedded form -->
+        <div class="form-fallback">
+          <p>Can't see the form? <a href="https://forms.office.com/r/YOUR_FORM_ID" target="_blank" class="btn-primary" style="display: inline-block; margin-top: 10px;">Open in New Window</a></p>
+        </div>
+      </div>
+      
+      <!-- Alternative Contact Methods -->
+      <div class="contact-alternatives">
+        <h3>Prefer to Talk? Call Us Now</h3>
+        <div class="hero-buttons">
+          <a href="tel:+1-800-555-0123" class="btn-secondary">Call (800) 555-0123</a>
+          <a href="mailto:quotes@quinnsconveyance.com" class="btn-secondary">Email Us</a>
+        </div>
       </div>
     </div>
   </section>

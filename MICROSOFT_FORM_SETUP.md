@@ -94,24 +94,34 @@ Here are suggested questions for your hot shot trucking quote form:
 2. Choose a professional blue theme to match your website
 3. **Add your logo** if desired (Settings > Customization)
 
-### Step 5: Get the Form URL
+### Step 5: Get the Form URLs
 
 1. **Click "Share"** button
-2. **Copy the link** - it will look like:
+2. **For the embedded form**, click "Embed" tab
+3. **Copy the embed URL** - it will look like:
+   `https://forms.office.com/Pages/ResponsePage.aspx?id=ABC123DEF456&embed=true`
+4. **For the fallback link**, use the regular share URL:
    `https://forms.office.com/r/ABC123DEF456`
-3. **This is your form URL** to use in the website
 
 ### Step 6: Update Your Website
 
-Replace `YOUR_FORM_ID` in the website code with your actual form URL:
+Replace the placeholder URLs in the website code:
 
 ```javascript
-// Replace this URL in main.js:
-"https://forms.office.com/r/YOUR_FORM_ID"
+// In main.js, replace these URLs:
 
+// For the embedded iframe:
+"https://forms.office.com/Pages/ResponsePage.aspx?id=YOUR_FORM_ID&embed=true"
+// With your actual embed URL:
+"https://forms.office.com/Pages/ResponsePage.aspx?id=ABC123DEF456&embed=true"
+
+// For the fallback link:
+"https://forms.office.com/r/YOUR_FORM_ID"
 // With your actual form URL:
 "https://forms.office.com/r/ABC123DEF456"
 ```
+
+**Important**: Make sure to use the embed URL (with `&embed=true`) for the iframe src, and the regular URL for the fallback link.
 
 ### Step 7: Test Your Form
 
@@ -119,6 +129,22 @@ Replace `YOUR_FORM_ID` in the website code with your actual form URL:
 2. **Submit a test response** to ensure everything works
 3. **Check that you receive email notifications**
 4. **Test the form link from your website**
+
+## 🌟 Embedded Form Benefits
+
+### Why Embed Instead of External Links?
+- ✅ **No page redirects** - Users stay on your website
+- ✅ **Professional appearance** - Seamless integration with your brand
+- ✅ **No ad blocker issues** - iframes are allowed by most ad blockers
+- ✅ **Better conversion rates** - Users are more likely to complete forms
+- ✅ **Mobile-friendly** - Responsive design that works on all devices
+- ✅ **Fallback option** - External link available if iframe doesn't load
+
+### Form Features
+- **Auto-responsive** - Adjusts to screen size automatically
+- **Secure** - All data is encrypted and stored in Microsoft's cloud
+- **Accessible** - Meets accessibility standards
+- **Professional styling** - Clean, modern appearance
 
 ## 🔄 Managing Responses
 
