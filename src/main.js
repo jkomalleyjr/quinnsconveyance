@@ -10,7 +10,7 @@ document.querySelector('#app').innerHTML = `
     <button onclick="undoLast()">Undo Last</button>
     <button class="success" onclick="saveChanges()">💾 Save Changes</button>
     <div class="selected-info" id="selectedInfo" style="display: none;">
-      <strong>Selected:</strong> <span id="selectedElement">div.stat-item</span>
+      <strong>Selected:</strong> <span id="selectedElement">div.feature</span>
     </div>
     <div class="instructions">
       <strong>Instructions:</strong><br>
@@ -124,11 +124,7 @@ document.querySelector('#app').innerHTML = `
           <h3>Direct Door-to-Door Service</h3>
           <p>Exclusive-use trucking that avoids hubs and terminals, reducing handling and ensuring faster, more predictable transit times.</p>
         </div>
-        <div class="feature">
-          <div class="feature-icon">🚐</div>
-          <h3>Flexible Vehicle Options</h3>
-          <p>From sprinter vans to flatbed trailers, we match the right vehicle to your specific freight size and delivery requirements.</p>
-        </div>
+        
         <div class="feature">
           <div class="feature-icon">💰</div>
           <h3>Cost-Effective vs Air Freight</h3>
@@ -155,19 +151,8 @@ document.querySelector('#app').innerHTML = `
       <p>Fill out the form below and we'll get back to you within 2 business hours with a custom quote for your expedited freight needs.</p>
       
       <!-- Embedded Microsoft Form -->
-      <div class="form-container">
-        <iframe 
-          src="https://forms.office.com/Pages/ResponsePage.aspx?id=YOUR_FORM_ID&embed=true" 
-          width="100%" 
-          height="800" 
-          frameborder="0" 
-          marginwidth="0" 
-          marginheight="0" 
-          style="border: none; max-width: 100%; max-height: 100vh;" 
-          allowfullscreen 
-          webkitallowfullscreen 
-          mozallowfullscreen 
-          msallowfullscreen>
+      <div class="form-container" style="">
+        <iframe src="https://forms.office.com/Pages/ResponsePage.aspx?id=YOUR_FORM_ID&amp;embed=true" width="100%" height="800" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width: 100%; max-height: 100vh;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" msallowfullscreen="">
         </iframe>
         
         <!-- Fallback for users who can't see the embedded form -->
@@ -223,106 +208,6 @@ document.querySelector('#app').innerHTML = `
   </footer>
 `
 
-// Developer Mode Variables
-let devModeActive = false;
-let selectedElement = null;
-let removedElements = [];
-
-// Developer Mode Functions
-window.toggleDevMode = function() {
-  devModeActive = !devModeActive;
-  const devControls = document.getElementById('devControls');
-  const body = document.body;
-  
-  if (devModeActive) {
-    devControls.style.display = 'block';
-    body.classList.add('dev-mode-active');
-    console.log('🛠️ Developer Mode: ON - Click elements to select them');
-  } else {
-    devControls.style.display = 'none';
-    body.classList.remove('dev-mode-active');
-    clearSelection();
-    console.log('🛠️ Developer Mode: OFF');
-  }
-}
-
-window.clearSelection = function() {
-  if (selectedElement) {
-    selectedElement.classList.remove('dev-selected');
-    selectedElement = null;
-  }
-  document.getElementById('selectedInfo').style.display = 'none';
-}
-
-window.removeSelected = function() {
-  if (selectedElement) {
-    // Store for undo
-    removedElements.push({
-      element: selectedElement.cloneNode(true),
-      parent: selectedElement.parentNode,
-      nextSibling: selectedElement.nextSibling
-    });
-    
-    // Remove element
-    selectedElement.remove();
-    clearSelection();
-    console.log('🗑️ Element removed (use Undo to restore)');
-  }
-}
-
-window.undoLast = function() {
-  if (removedElements.length > 0) {
-    const lastRemoved = removedElements.pop();
-    if (lastRemoved.nextSibling) {
-      lastRemoved.parent.insertBefore(lastRemoved.element, lastRemoved.nextSibling);
-    } else {
-      lastRemoved.parent.appendChild(lastRemoved.element);
-    }
-    console.log('↩️ Last removal undone');
-  }
-}
-
-window.saveChanges = function() {
-  // Get the current HTML structure (excluding dev controls)
-  const appElement = document.getElementById('app');
-  const devControls = document.getElementById('devControls');
-  
-  // Temporarily hide dev controls
-  const originalDisplay = devControls.style.display;
-  devControls.style.display = 'none';
-  
-  // Clean up dev mode classes
-  document.querySelectorAll('.dev-selected').forEach(el => {
-    el.classList.remove('dev-selected');
-  });
-  
-  // Get the cleaned HTML
-  const currentHTML = appElement.innerHTML;
-  
-  // Restore dev controls
-  devControls.style.display = originalDisplay;
-  
-  // Generate the updated main.js content
-  const newMainJsContent = generateUpdatedMainJs(currentHTML);
-  
-  // Create a downloadable file
-  const blob = new Blob([newMainJsContent], { type: 'text/javascript' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'main.js';
-  a.click();
-  URL.revokeObjectURL(url);
-  
-  console.log('💾 Changes saved! Download the new main.js file and replace the current one.');
-  alert('Changes saved! A new main.js file has been downloaded. Replace the current main.js file with the downloaded one to make changes permanent.');
-}
-
-function generateUpdatedMainJs(htmlContent) {
-  return `import './style.css'
-
-document.querySelector('#app').innerHTML = \`${htmlContent}\`
-
 // Add your JavaScript functionality here
 document.addEventListener('DOMContentLoaded', function() {
   // Smooth scrolling for anchor links
@@ -350,102 +235,4 @@ document.addEventListener('DOMContentLoaded', function() {
       header.style.backdropFilter = 'none';
     }
   });
-});`;
-}
-
-// Element selection handler
-function handleElementClick(e) {
-  if (!devModeActive) return;
-  
-  e.preventDefault();
-  e.stopPropagation();
-  
-  // Don't select dev controls
-  if (e.target.closest('.dev-controls')) return;
-  
-  clearSelection();
-  selectedElement = e.target;
-  selectedElement.classList.add('dev-selected');
-  
-  // Update info display
-  const selectedInfo = document.getElementById('selectedInfo');
-  const selectedElementSpan = document.getElementById('selectedElement');
-  selectedInfo.style.display = 'block';
-  
-  let elementDescription = selectedElement.tagName.toLowerCase();
-  if (selectedElement.className) {
-    elementDescription += '.' + selectedElement.className.split(' ')[0];
-  }
-  if (selectedElement.id) {
-    elementDescription += '#' + selectedElement.id;
-  }
-  
-  selectedElementSpan.textContent = elementDescription;
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Add click handler for dev mode
-  document.addEventListener('click', handleElementClick);
-  
-  // Keyboard shortcuts
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && devModeActive) {
-      toggleDevMode();
-    }
-    if (e.key === 'Delete' && devModeActive && selectedElement) {
-      removeSelected();
-    }
-    // Activate dev mode with Ctrl+Shift+D
-    if (e.ctrlKey && e.shiftKey && e.key === 'D') {
-      e.preventDefault();
-      toggleDevMode();
-    }
-  });
-
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      if (devModeActive) return; // Don't interfere with dev mode
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        // Calculate offset for fixed header
-        const headerHeight = document.querySelector('.header').offsetHeight;
-        const targetPosition = target.offsetTop - headerHeight - 20; // 20px extra padding
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-        
-        // Add a subtle highlight effect for the quote form
-        if (this.getAttribute('href') === '#quote') {
-          setTimeout(() => {
-            const formContainer = target.querySelector('.form-container');
-            if (formContainer) {
-              formContainer.style.animation = 'gentle-pulse 1.5s ease-in-out';
-              setTimeout(() => {
-                formContainer.style.animation = '';
-              }, 1500);
-            }
-          }, 800); // Wait for scroll to complete
-        }
-      }
-    });
-  });
-
-  // Add scroll effect to header
-  window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-      header.style.background = 'rgba(255, 255, 255, 0.95)';
-      header.style.backdropFilter = 'blur(10px)';
-    } else {
-      header.style.background = '#ffffff';
-      header.style.backdropFilter = 'none';
-    }
-  });
-
-  // Add dev mode info to console
-  console.log('🛠️ Developer Mode available! Press Ctrl+Shift+D to activate');
 });
