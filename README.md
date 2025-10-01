@@ -19,13 +19,13 @@ A modern, responsive website for expedited freight and hot shot trucking service
 
 ## 🚀 Live Demo
 
-Visit the live website: [https://yourusername.github.io/quinnsconveyance](https://yourusername.github.io/quinnsconveyance)
+Visit the live website: [https://jkomalleyjr.github.io/quinnsconveyance](https://jkomalleyjr.github.io/quinnsconveyance)
 
 ## 📦 Installation & Development
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/quinnsconveyance.git
+git clone https://github.com/jkomalleyjr/quinnsconveyance.git
 cd quinnsconveyance
 
 # Install dependencies
