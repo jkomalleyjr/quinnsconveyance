@@ -33,7 +33,7 @@ document.querySelector('#app').innerHTML = `
           <a href="#industries">Industries</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a href="#quote" class="cta-button">Get Quote</a>
+        <a href="https://forms.office.com/r/YOUR_FORM_ID" target="_blank" class="cta-button">Get Quote</a>
       </div>
     </div>
   </header>
@@ -46,7 +46,7 @@ document.querySelector('#app').innerHTML = `
           <h1>Trusted Time-Critical Logistics Partner</h1>
           <p>Quinn's Conveyance delivers expedited freight solutions with decades of experience. When speed counts and deadlines can't wait, we get your cargo where it needs to go—safely and on time.</p>
           <div class="hero-buttons">
-            <a href="#quote" class="btn-primary">Get a Quote</a>
+            <a href="https://forms.office.com/r/YOUR_FORM_ID" target="_blank" class="btn-primary">Get a Quote</a>
             <a href="#services" class="btn-secondary">Our Services</a>
           </div>
         </div>
@@ -154,7 +154,7 @@ document.querySelector('#app').innerHTML = `
       <h2>Ready to Move Your Urgent Freight?</h2>
       <p>Get started with Quinn's Conveyance today. Our experienced team is standing by to handle your time-critical shipping needs.</p>
       <div class="hero-buttons">
-        <a href="#" class="btn-primary">Get Free Quote</a>
+        <a href="https://forms.office.com/r/YOUR_FORM_ID" target="_blank" class="btn-primary">Get Free Quote</a>
         <a href="tel:+1-800-555-0123" class="btn-secondary">Call (800) 555-0123</a>
       </div>
     </div>
