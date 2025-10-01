@@ -33,7 +33,7 @@ document.querySelector('#app').innerHTML = `
           <a href="#industries">Industries</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a href="https://forms.office.com/r/YOUR_FORM_ID" target="_blank" class="cta-button">Get Quote</a>
+        <a href="#quote" class="cta-button">Get Quote</a>
       </div>
     </div>
   </header>
@@ -46,7 +46,7 @@ document.querySelector('#app').innerHTML = `
           <h1>Trusted Time-Critical Logistics Partner</h1>
           <p>Quinn's Conveyance delivers expedited freight solutions with decades of experience. When speed counts and deadlines can't wait, we get your cargo where it needs to go—safely and on time.</p>
           <div class="hero-buttons">
-            <a href="https://forms.office.com/r/YOUR_FORM_ID" target="_blank" class="btn-primary">Get a Quote</a>
+            <a href="#quote" class="btn-primary">Get a Quote</a>
             <a href="#services" class="btn-secondary">Our Services</a>
           </div>
         </div>
@@ -409,10 +409,27 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        // Calculate offset for fixed header
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const targetPosition = target.offsetTop - headerHeight - 20; // 20px extra padding
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
         });
+        
+        // Add a subtle highlight effect for the quote form
+        if (this.getAttribute('href') === '#quote') {
+          setTimeout(() => {
+            const formContainer = target.querySelector('.form-container');
+            if (formContainer) {
+              formContainer.style.animation = 'gentle-pulse 1.5s ease-in-out';
+              setTimeout(() => {
+                formContainer.style.animation = '';
+              }, 1500);
+            }
+          }, 800); // Wait for scroll to complete
+        }
       }
     });
   });
