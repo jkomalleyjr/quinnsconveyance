@@ -172,33 +172,83 @@ document.querySelector('#app').innerHTML = `
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <!-- Industries Section -->
+  <section class="industries" id="industries">
     <div class="container">
+      <div class="section-header">
+        <h2>Industries We Serve</h2>
+        <p>Specialized hot shot trucking solutions for mission-critical industries across North America</p>
+      </div>
+      <div class="industries-grid">
+        <div class="industry-card">
+          <div class="industry-icon">🏭</div>
+          <h3>Manufacturing</h3>
+          <p>Keep production lines running with urgent parts delivery and just-in-time logistics for automotive, aerospace, and industrial manufacturing.</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">🛢️</div>
+          <h3>Oil & Gas</h3>
+          <p>Critical equipment delivery to remote drilling sites and refineries. Minimize downtime with our specialized energy sector logistics.</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">🏗️</div>
+          <h3>Construction</h3>
+          <p>Tools, materials, and equipment delivery directly to job sites. Keep projects on schedule with our reliable construction logistics.</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">⚕️</div>
+          <h3>Healthcare</h3>
+          <p>Time-sensitive medical equipment and pharmaceutical deliveries with temperature-controlled transport options available.</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">🔧</div>
+          <h3>Emergency Repairs</h3>
+          <p>24/7 emergency parts delivery for critical infrastructure, utilities, and industrial facilities that can't afford downtime.</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">🚛</div>
+          <h3>Automotive</h3>
+          <p>Rapid delivery of automotive parts, components, and assemblies to dealerships, repair shops, and manufacturing facilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Contact Section -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="contact-header">
+        <h2>Contact Quinn's Conveyance</h2>
+        <p>Ready to get your urgent freight moving? Contact our experienced logistics team 24/7.</p>
+      </div>
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Quinn's Conveyance</h3>
-          <p>Your trusted partner for expedited freight and hot shot trucking services across North America.</p>
+          <h3>📞 Contact Information</h3>
+          <p><strong>Phone:</strong> <a href="tel:+1-800-555-0123">(800) 555-0123</a></p>
+          <p><strong>Email:</strong> <a href="mailto:quotes@quinnsconveyance.com">quotes@quinnsconveyance.com</a></p>
+          <p><strong>Emergency Line:</strong> <a href="tel:+1-800-555-0124">(800) 555-0124</a></p>
+          <p><strong>Available:</strong> 24/7/365</p>
         </div>
         <div class="footer-section">
-          <h3>Services</h3>
-          <p><a href="#">Hot Shot Trucking</a></p>
-          <p><a href="#">Expedited Freight</a></p>
-          <p><a href="#">Flatbed Services</a></p>
-          <p><a href="#">Sprinter Vans</a></p>
+          <h3>🏢 Business Information</h3>
+          <p><strong>Quinn's Conveyance LLC</strong></p>
+          <p>Expedited Freight & Hot Shot Trucking</p>
+          <p>Serving North America</p>
+          <p>Licensed & Insured</p>
         </div>
         <div class="footer-section">
-          <h3>Industries</h3>
-          <p><a href="#">Oil &amp; Gas</a></p>
-          <p><a href="#">Construction</a></p>
-          <p><a href="#">Manufacturing</a></p>
-          <p><a href="#">Automotive</a></p>
+          <h3>🚛 Services</h3>
+          <p><a href="#services">Hot Shot Trucking</a></p>
+          <p><a href="#services">Expedited Freight</a></p>
+          <p><a href="#services">Flatbed Services</a></p>
+          <p><a href="#services">Emergency Deliveries</a></p>
         </div>
         <div class="footer-section">
-          <h3>Contact</h3>
-          <p>Phone: (800) 555-0123</p>
-          <p>Email: info@quinnsconveyance.com</p>
-          <p>Available 24/7/365</p>
+          <h3>🏭 Industries</h3>
+          <p><a href="#industries">Oil &amp; Gas</a></p>
+          <p><a href="#industries">Manufacturing</a></p>
+          <p><a href="#industries">Construction</a></p>
+          <p><a href="#industries">Healthcare</a></p>
         </div>
       </div>
       <div class="footer-bottom">
